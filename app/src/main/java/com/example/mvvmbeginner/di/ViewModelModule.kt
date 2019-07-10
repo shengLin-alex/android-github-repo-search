@@ -2,8 +2,8 @@ package com.example.mvvmbeginner.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.mvvmbeginner.models.GithubViewModelFactory
-import com.example.mvvmbeginner.models.RepoViewModel
+import com.example.mvvmbeginner.viewmodels.GithubViewModelFactory
+import com.example.mvvmbeginner.viewmodels.RepoViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

@@ -1,4 +1,4 @@
-package com.example.mvvmbeginner.pojos
+package com.example.mvvmbeginner.data.models
 
 import com.google.gson.annotations.SerializedName
 

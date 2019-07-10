@@ -1,9 +1,9 @@
-package com.example.mvvmbeginner.models
+package com.example.mvvmbeginner.data
 
 import androidx.lifecycle.LiveData
 import com.example.mvvmbeginner.apis.ApiResponse
 import com.example.mvvmbeginner.apis.GithubService
-import com.example.mvvmbeginner.pojos.RepoSearchResponse
+import com.example.mvvmbeginner.data.models.RepoSearchResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 

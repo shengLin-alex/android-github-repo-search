@@ -1,4 +1,4 @@
-package com.example.mvvmbeginner.models
+package com.example.mvvmbeginner.viewmodels
 
 import androidx.annotation.NonNull
 import androidx.lifecycle.ViewModel

@@ -9,7 +9,7 @@
 
         <variable
                 name="repoViewModel"
-                type="com.example.mvvmbeginner.models.RepoViewModel" />
+                type="com.example.mvvmbeginner.viewmodels.RepoViewModel" />
 
     </data>
 

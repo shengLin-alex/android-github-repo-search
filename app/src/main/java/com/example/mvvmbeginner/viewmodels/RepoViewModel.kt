@@ -1,4 +1,4 @@
-package com.example.mvvmbeginner.models
+package com.example.mvvmbeginner.viewmodels
 
 import android.text.TextUtils
 import androidx.databinding.ObservableBoolean
@@ -7,8 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.mvvmbeginner.apis.ApiResponse
+import com.example.mvvmbeginner.data.DataModel
 import com.example.mvvmbeginner.utils.AbsentLiveData
-import com.example.mvvmbeginner.pojos.RepoSearchResponse
+import com.example.mvvmbeginner.data.models.RepoSearchResponse
 import javax.inject.Inject
 
 class RepoViewModel @Inject constructor(model: DataModel) : ViewModel() {

@@ -16,10 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvmbeginner.apis.ApiResponse
 import com.example.mvvmbeginner.databinding.RepoFragmentBinding
 import com.example.mvvmbeginner.di.Injectable
-import com.example.mvvmbeginner.models.GithubViewModelFactory
-import com.example.mvvmbeginner.models.RepoViewModel
-import com.example.mvvmbeginner.pojos.RepoSearchResponse
-import dagger.android.support.AndroidSupportInjection
+import com.example.mvvmbeginner.viewmodels.GithubViewModelFactory
+import com.example.mvvmbeginner.viewmodels.RepoViewModel
+import com.example.mvvmbeginner.data.models.RepoSearchResponse
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 

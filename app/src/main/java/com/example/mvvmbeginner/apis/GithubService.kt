@@ -1,7 +1,7 @@
 package com.example.mvvmbeginner.apis
 
 import androidx.lifecycle.LiveData
-import com.example.mvvmbeginner.pojos.RepoSearchResponse
+import com.example.mvvmbeginner.data.models.RepoSearchResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

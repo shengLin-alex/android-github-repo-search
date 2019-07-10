@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvmbeginner.databinding.RepoItemBinding
-import com.example.mvvmbeginner.pojos.Repo
+import com.example.mvvmbeginner.data.models.Repo
 import java.util.*
 
 class RepoAdapter(private val items: MutableList<Repo>) : RecyclerView.Adapter<RepoAdapter.RepoViewHolder>() {
