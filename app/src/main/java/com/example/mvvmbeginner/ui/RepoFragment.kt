@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.Nullable
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,8 +18,11 @@ import com.example.mvvmbeginner.databinding.RepoFragmentBinding
 import com.example.mvvmbeginner.models.GithubViewModelFactory
 import com.example.mvvmbeginner.models.RepoViewModel
 import com.example.mvvmbeginner.pojos.RepoSearchResponse
+import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class RepoFragment : Fragment() {
+class RepoFragment : DaggerFragment() {
 
     companion object {
         const val TAG = "Repo"
@@ -30,11 +32,17 @@ class RepoFragment : Fragment() {
 
     private var binding: RepoFragmentBinding? = null
 
-    private val factory: GithubViewModelFactory = GithubViewModelFactory()
+    @Inject
+    lateinit var factory: GithubViewModelFactory
 
     private var repoViewModel: RepoViewModel? = null
 
     private val repoAdapter: RepoAdapter = RepoAdapter(ArrayList())
+
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
     @Nullable
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
