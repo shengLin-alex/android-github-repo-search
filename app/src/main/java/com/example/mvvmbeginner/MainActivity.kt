@@ -1,14 +1,13 @@
 package com.example.mvvmbeginner
 
 import android.os.Bundle
+import com.example.mvvmbeginner.di.Injectable
 import com.example.mvvmbeginner.ui.RepoFragment
-import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
 
-class MainActivity : DaggerAppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity(), Injectable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
         this.setContentView(R.layout.main_activity)

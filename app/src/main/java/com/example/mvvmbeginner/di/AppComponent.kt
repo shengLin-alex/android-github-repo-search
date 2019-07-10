@@ -3,7 +3,6 @@ package com.example.mvvmbeginner.di
 import com.example.mvvmbeginner.GithubApp
 import dagger.BindsInstance
 import dagger.Component
-import dagger.android.AndroidInjectionModule
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 

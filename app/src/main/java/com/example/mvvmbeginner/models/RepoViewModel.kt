@@ -8,12 +8,14 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.mvvmbeginner.apis.ApiResponse
 import com.example.mvvmbeginner.utils.AbsentLiveData
-import com.example.mvvmbeginner.pojos.Repo
 import com.example.mvvmbeginner.pojos.RepoSearchResponse
+import javax.inject.Inject
 
-class RepoViewModel(private val dataModel: DataModel) : ViewModel() {
+class RepoViewModel @Inject constructor(model: DataModel) : ViewModel() {
 
     private val query: MutableLiveData<String> = MutableLiveData()
+
+    private val dataModel = model
 
     var repos: LiveData<ApiResponse<RepoSearchResponse>>? = null
 

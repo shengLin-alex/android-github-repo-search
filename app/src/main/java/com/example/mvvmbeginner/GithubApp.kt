@@ -2,7 +2,7 @@ package com.example.mvvmbeginner
 
 import android.app.Activity
 import android.app.Application
-import com.example.mvvmbeginner.di.DaggerAppComponent
+import com.example.mvvmbeginner.di.AppInjector
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -21,10 +21,7 @@ class GithubApp : Application(), HasActivityInjector {
             Timber.plant(Timber.DebugTree())
         }
 
-        DaggerAppComponent.builder()
-            .application(this)
-            .build()
-            .inject(this)
+        AppInjector.init(this)
     }
 
     override fun activityInjector(): AndroidInjector<Activity> {

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mvvmbeginner.apis.ApiResponse
 import com.example.mvvmbeginner.databinding.RepoFragmentBinding
+import com.example.mvvmbeginner.di.Injectable
 import com.example.mvvmbeginner.models.GithubViewModelFactory
 import com.example.mvvmbeginner.models.RepoViewModel
 import com.example.mvvmbeginner.pojos.RepoSearchResponse
@@ -22,7 +23,7 @@ import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class RepoFragment : DaggerFragment() {
+class RepoFragment : DaggerFragment(), Injectable {
 
     companion object {
         const val TAG = "Repo"
@@ -38,11 +39,6 @@ class RepoFragment : DaggerFragment() {
     private var repoViewModel: RepoViewModel? = null
 
     private val repoAdapter: RepoAdapter = RepoAdapter(ArrayList())
-
-    override fun onAttach(context: Context) {
-        AndroidSupportInjection.inject(this)
-        super.onAttach(context)
-    }
 
     @Nullable
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
