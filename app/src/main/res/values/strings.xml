@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MVVM Beginner</string>
+    <string name="refresh">Refresh</string>
+    <string name="search_repositories">search repositories</string>
+    <string name="go">GO</string>
+    <string name="owner_avatar">owner avatar</string>
+</resources>
