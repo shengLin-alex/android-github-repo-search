@@ -69,7 +69,10 @@ class RepoFragment : DaggerFragment(), Injectable {
             if (it != null) {
                 this.binding?.resource = it
                 this.binding?.executePendingBindings()
-                this.repoAdapter.swapItem(it.data)
+
+                if (it.data != null) {
+                    this.repoAdapter.swapItem(it.data)
+                }
             }
         })
     }

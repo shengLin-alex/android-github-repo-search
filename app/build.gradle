@@ -64,6 +64,10 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.1.0'
     implementation 'androidx.room:room-ktx:2.1.0'
 
+    // debug for room db
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+    debugImplementation 'com.amitshekhar.android:debug-db-encrypt:1.0.6'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
