@@ -7,4 +7,4 @@ import androidx.room.TypeConverters
 
 @Entity
 @TypeConverters(GithubTypeConverters::class)
-class RepoSearchResult(@NonNull @PrimaryKey val query: String, val repoIds: List<Int>, val totalCount: Int)
+class RepoSearchResult(@NonNull @PrimaryKey val query: String, val repoIds: MutableList<Int>, val totalCount: Int)

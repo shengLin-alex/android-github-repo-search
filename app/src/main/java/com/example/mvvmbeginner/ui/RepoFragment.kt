@@ -7,18 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mvvmbeginner.apis.ApiResponse
+import com.example.mvvmbeginner.data.models.Repo
+import com.example.mvvmbeginner.data.models.Resource
 import com.example.mvvmbeginner.databinding.RepoFragmentBinding
 import com.example.mvvmbeginner.di.Injectable
 import com.example.mvvmbeginner.viewmodels.GithubViewModelFactory
 import com.example.mvvmbeginner.viewmodels.RepoViewModel
-import com.example.mvvmbeginner.data.models.RepoSearchResponse
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -66,25 +65,18 @@ class RepoFragment : DaggerFragment(), Injectable {
         super.onActivityCreated(savedInstanceState)
 
         this.repoViewModel = ViewModelProviders.of(this, this.factory).get(RepoViewModel::class.java)
-        this.binding?.repoViewModel = this.repoViewModel
-        this.repoViewModel?.repos?.observe(this, Observer<ApiResponse<RepoSearchResponse>> {
-            this.repoViewModel?.isLoading?.set(false)
-            if (it == null) {
-                this.repoAdapter.swapItem(null)
-                return@Observer
-            }
-
-            if (it.isSuccessful()) {
-                this.repoAdapter.swapItem(it.body?.items)
-            } else {
-                Toast.makeText(this.context, "連線發生錯誤", Toast.LENGTH_SHORT).show()
+        this.repoViewModel?.repos?.observe(this, Observer<Resource<MutableList<Repo>>> {
+            if (it != null) {
+                this.binding?.resource = it
+                this.binding?.executePendingBindings()
+                this.repoAdapter.swapItem(it.data)
             }
         })
     }
 
     private fun doSearch() {
         val query = this.binding?.editorQuery?.text.toString()
-        this.repoViewModel?.isLoading?.set(true)
+
         this.repoViewModel?.searchRepo(query)
         this.dismissKeyboard()
     }

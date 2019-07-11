@@ -1,33 +1,28 @@
 package com.example.mvvmbeginner.viewmodels
 
 import android.text.TextUtils
-import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.example.mvvmbeginner.apis.ApiResponse
-import com.example.mvvmbeginner.data.DataModel
+import com.example.mvvmbeginner.data.RepoRepository
+import com.example.mvvmbeginner.data.models.Repo
+import com.example.mvvmbeginner.data.models.Resource
 import com.example.mvvmbeginner.utils.AbsentLiveData
-import com.example.mvvmbeginner.data.models.RepoSearchResponse
 import javax.inject.Inject
 
-class RepoViewModel @Inject constructor(model: DataModel) : ViewModel() {
+class RepoViewModel @Inject constructor(private val repoRepository: RepoRepository) : ViewModel() {
 
     private val query: MutableLiveData<String> = MutableLiveData()
 
-    private val dataModel = model
-
-    var repos: LiveData<ApiResponse<RepoSearchResponse>>? = null
-
-    val isLoading: ObservableBoolean = ObservableBoolean()
+    var repos: LiveData<Resource<MutableList<Repo>>>? = null
 
     init {
         this.repos = Transformations.switchMap(this.query) {
             if (TextUtils.isEmpty(it)) {
                 AbsentLiveData.create()
             } else {
-                this.dataModel.searchRepo(it)
+                this@RepoViewModel.repoRepository.search(it)
             }
         }
     }
